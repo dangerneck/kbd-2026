@@ -7,9 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>#000000</title>
     <link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2NkYGD4z0ABYBw1gGE0DBhGw4BhWIQBAE5OEAELnjVHAAAAAElFTkSuQmCC">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color: #000000;
+            --color: #EFEFEF;
             --color-transparent: #00000022;
         }
 
@@ -22,13 +25,41 @@
             background: var(--color);
             height: 100%;
             margin: 0;
+
+
         }
 
         body {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            background-image: url('./0110.jpg');
+            background-position: center;
+            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
+            flex-direction: column;
+            
+            font-size: 22px;
+            
+            h1 {
+                color: rgb(54, 187, 147);
+                text-shadow: 0 0 2px rgba(212, 150, 193, 1), 0 0 4px rgba(252, 70, 107, 1);
+            }
+
+            p,h1{
+                width: 80%;
+            }
+
+            p {
+                background: linear-gradient(270deg, rgba(63, 94, 251, 1) 0%, rgba(212, 150, 193, 1) 19%, rgba(252, 70, 107, 1) 100%);
+                text-shadow: 0 0 4px rgba(200,60,100,0.5);
+                background-clip: text;
+                padding: 12px;
+                color: transparent;
+                font-weight: 600;
+            }
         }
 
         #color {
@@ -37,96 +68,29 @@
             font-size: 2.5rem;
             font-weight: 300;
             padding: 2.25rem 3rem;
-            font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             cursor: text;
         }
     </style>
 </head>
 
 <body>
-    <p id="color">#000000</p>
+        <h1>Happy Birthday Kylie!</h1>
+
+        <p>I'm grateful every day to share my life with you. I've never known anyone who works so constantly and honestly to understand themselves, and to act within their values. You're an annoyingly likeable person who puts others at ease. You're smart and perceptive. You're the finest pork there is.</p>
+
+        <p>I'm excited to see how our lives grow together and to see how we can live as we become more ourselves, freed from the confines others placed on us. </p>
+
+        <p>I love you very much!</p>
+
+        <p>Here's some music I made to express my feelings to you. It feels vulnerable and silly, but here it is anyway: </p>
+
+        <p>And here's the other two things I made for various celebrations in easy to watch video form: <a href="https://youtu.be/jPf1hmnPy7Y">Happy Birthday Kylie 2026</a></p>
+        <p><a href="https://youtube.com/shorts/CwWskj07uZ8">Kylie Time off Celebration 2025</a></p>
+        <p><a href="https://youtube.com/shorts/grbgHJb1wig">Anniversary 2026</a></p>
     <script>
-        function randomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1) + min);
-        }
 
-        function hslToHex(h, s, l) {
-            h /= 360;
-            s /= 100;
-            l /= 100;
-            var r = void 0,
-                g = void 0,
-                b = void 0;
-            if (s === 0) {
-                r = g = b = l; // achromatic
-            } else {
-                var hue2rgb = function hue2rgb(p, q, t) {
-                    if (t < 0) t += 1;
-                    if (t > 1) t -= 1;
-                    if (t < 1 / 6) return p + (q - p) * 6 * t;
-                    if (t < 1 / 2) return q;
-                    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-                    return p;
-                };
-                var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-                var p = 2 * l - q;
-                r = hue2rgb(p, q, h + 1 / 3);
-                g = hue2rgb(p, q, h);
-                b = hue2rgb(p, q, h - 1 / 3);
-            }
-            var toHex = function toHex(x) {
-                var hex = Math.round(x * 255).toString(16);
-                return hex.length === 1 ? '0' + hex : hex;
-            };
-            return '#' + toHex(r) + toHex(g) + toHex(b);
-        }
 
-        window.onload = function () {
-            let stopProp = function (ev) {
-                ev.stopPropagation();
-            }
-
-            var colorElement = document.getElementById("color");
-            colorElement.addEventListener("click", stopProp, false);
-            colorElement.addEventListener("mousedown", stopProp, false);
-
-            var setFavicon = function (hex) {
-                var canvas = document.createElement('canvas');
-                canvas.width = 16;
-                canvas.height = 16;
-                var ctx = canvas.getContext('2d');
-                ctx.fillStyle = hex;
-                ctx.fillRect(0, 0, 16, 16);
-                document.getElementsByTagName('link')[0].href = canvas.toDataURL("image/x-icon");
-            }
-
-            var setRandomColor = function setRandomColor() {
-                var h = void 0,
-                    s = void 0,
-                    l = void 0;
-
-                h = randomInt(0, 359);
-                s = randomInt(55, 75);
-                l = randomInt(40, 60);
-
-                document.documentElement.style.setProperty('--color', 'hsl(' + h + ', ' + s + '%, ' + l + '%)');
-                var hex = hslToHex(h, s, l);
-                document.title = hex;
-                colorElement.innerHTML = hex;
-                document.documentElement.style.setProperty('--color-transparent', hex + '22');
-
-                setFavicon(hex);
-            };
-            setRandomColor();
-
-            var body = document.getElementsByTagName("body")[0];
-            body.addEventListener("mousedown", function (ev) {
-                ev.preventDefault();
-            });
-            body.addEventListener("click", function () {
-                setRandomColor();
-            }, false);
-        };
     </script>
 </body>
 
